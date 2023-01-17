@@ -9,6 +9,11 @@ module.exports = merge(common, {
     filename: "main.js",
     path: path.resolve(__dirname, "dist"),
   },
+  devServer: {
+    port: 8080,
+    hot: false,
+    liveReload: true,
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/template.html",

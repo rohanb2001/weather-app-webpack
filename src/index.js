@@ -19,6 +19,19 @@ function getInputValues(e) {
   }
 }
 
+function getGeoLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(onSuccess);
+  } else {
+    alert("Your browser not support geolocation api");
+  }
+}
+
+function onSuccess(position) {
+  const { latitude, longitude } = position.coords;
+  console.log(latitude, longitude);
+}
+
 function requestApi(city) {
   api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${API_KEY}`;
   fetchData();
@@ -38,3 +51,4 @@ function fetchData() {
 
 // Add Event listeners
 inputField.addEventListener("keyup", getInputValues);
+locationBtn.addEventListener("click", getGeoLocation);
