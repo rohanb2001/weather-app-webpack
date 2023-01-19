@@ -1,8 +1,6 @@
 import { requestApi } from "../services/service";
 
-const inputField = document.querySelector("input");
-
-export let API_KEY = "c6c351625df31807b6e3c66fb3910fcf";
+export const inputField = document.querySelector("input");
 
 export const state = {
   api: ``,
@@ -11,9 +9,10 @@ export const state = {
 
 export function getInputValues(e) {
   if (e.key === "Enter" && inputField.value !== "") {
-    // state.inputValue = inputField.value;
-    requestApi(inputField.value);
+    state.inputValue = inputField.value;
+    requestApi(state.inputValue);
   }
 }
 
+// Event Listeners
 inputField.addEventListener("keyup", getInputValues);

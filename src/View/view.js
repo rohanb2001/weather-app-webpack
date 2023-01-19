@@ -1,4 +1,5 @@
-import { infoTxt } from "../index";
+import { infoTxt, weatherPart, wrapper } from "../index";
+import { inputField } from "../Model/model";
 
 export function onError(error) {
   infoTxt.innerHTML = error.message;
